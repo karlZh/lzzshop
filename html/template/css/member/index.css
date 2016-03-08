@@ -1,0 +1,26 @@
+.area-process span i,.process .bar em{ background-size:24px 141px; background-image:url(../../images/member/member.gif) ;}
+.pxui-color-yellow{color:#ffc832}
+.member{ text-indent:5px; background:#fff; margin-bottom:10px; border-bottom:1px solid #cdcdcd; padding:10px; }
+.member h2{ font-weight:normal; border-bottom:1px solid #cbcbcb; font-size:18px; overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis; margin-bottom:10px;}
+.member h2 span{ margin-right:3px;}
+.level{ font-size:16px;}
+.level p{ display:inline;float:right; margin-right:5px; }
+.level b{ display:inline; font-weight:normal; background:#c3c2c2; color:#fff; padding:2px 4px; font-size:12px; border-radius:3px 3px 3px 3px;}
+.area-process{font-size:12px; overflow:hidden; widht:98%; padding:10px 1% 0 1%;}
+.area-process span{ width:28px; overflow:hidden; text-align:center;float:left;}
+.process{ width:72%;margin:0 1%; height:40px; overflow:hidden;float:left; padding:4px 0 0 0;}
+.process .bar{   height:11px;width:100%; background:#e4e3e3;border-radius:5px 5px 5px 5px; }
+.process .bar p{position:relative; width:99%; height:12px;border-radius:5px 5px 5px 5px; }
+.process .bar em{position:absolute; top:2px; left:2px; height:7px; overflow:hidden;border-radius:3px 3px 3px 3px; background-position:0 0; background-repeat:repeat-x;}
+.process .bar i{ margin-left:-16px; position:absolute;left:50%; top:12px; font-style:normal;}
+.area-process span i{ display:block; width:19px; height:20px; margin-left:6px; overflow:hidden; }
+.area-process span i.vip0{ background-position:0 -7px;}
+.area-process span i.vip1{ background-position:0 -27px;}
+.area-process span i.vip2{ background-position:0 -47px;}
+.area-process span i.vip3{ background-position:0 -67px;}
+.area-process span i.vip4{ background-position:0 -87px;}
+.area-process span i.vip5{ background-position:0 -107px;}
+.pxui-list{ background:#fff;}
+.pxui-list div{padding:0 12px;}
+.pxui-list a{ height:40px; overflow:hidden;}
+.pxui-list b{font-weight:normal;margin-left:15px; color:#bababa; margin-right:30px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;}

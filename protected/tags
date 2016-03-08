@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+AdminModule	modules/admin/AdminModule.php	/^class AdminModule extends CWebModule$/;"	c
+Controller	components/Controller.php	/^class Controller extends CController$/;"	c
+DefaultController	modules/admin/controllers/DefaultController.php	/^class DefaultController extends Controller$/;"	c
+SiteTest	tests/functional/SiteTest.php	/^class SiteTest extends WebTestCase$/;"	c
+TEST_BASE_URL	tests/WebTestCase.php	/^define('TEST_BASE_URL','http:\/\/localhost\/testdrive\/index-test.php\/');$/;"	d
+UserIdentity	components/UserIdentity.php	/^class UserIdentity extends CUserIdentity$/;"	c
+WebTestCase	tests/WebTestCase.php	/^class WebTestCase extends CWebTestCase$/;"	c
+config	tests/bootstrap.php	/^$config=dirname(__FILE__).'\/..\/config\/test.php';$/;"	v
+config	yiic.php	/^$config=dirname(__FILE__).'\/config\/console.php';$/;"	v
+id	data/schema.mysql.sql	/^    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,$/;"	F
+id	data/schema.sqlite.sql	/^    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,$/;"	F
+tbl_user	data/schema.mysql.sql	/^CREATE TABLE tbl_user ($/;"	t
+tbl_user	data/schema.sqlite.sql	/^CREATE TABLE tbl_user ($/;"	t
+username	data/schema.mysql.sql	/^    username VARCHAR(128) NOT NULL,$/;"	F
+username	data/schema.sqlite.sql	/^    username VARCHAR(128) NOT NULL,$/;"	F
+users	components/UserIdentity.php	/^		$users=array($/;"	v
+yiic	yiic.php	/^$yiic=dirname(__FILE__).'\/..\/framework\/yiic.php';$/;"	v
+yiit	tests/bootstrap.php	/^$yiit=dirname(__FILE__).'\/..\/..\/framework\/yiit.php';$/;"	v
