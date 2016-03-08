@@ -40,6 +40,7 @@
                                         "class"=>"col-sm-3 control-label"
                                     )) ?>
                                     <div class="col-sm-5">
+                                        <div class="input-group  input-group-sm">
                                         <?php echo $form->textField($model,'name',array(
                                             "class"=>"form-control",
                                             "id"=>"name",
@@ -48,6 +49,7 @@
                                             "parsley-minlength"=>"4",
                                             "parsley-validation-minlength"=>"1"
                                         )) ?>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -57,6 +59,7 @@
                                         "class"=>"col-sm-3 control-label"
                                     )) ?>
                                     <div class="col-sm-5">
+                                        <div class="input-group  input-group-sm">
                                         <?php echo $form->textField($model,'phone',
                                             array(
                                                 "class"=>"form-control",
@@ -64,6 +67,7 @@
                                                 "parsley-trigger"=>"change",
                                                 "parsley-required"=>"true",
                                             )) ?>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -107,6 +111,7 @@
                                         "class"=>"col-sm-3 control-label"
                                     )) ?>
                                     <div class="col-sm-5">
+                                        <div class="input-group  input-group-sm">
                                         <?php echo $form->textField($model,'company_adress',
                                             array(
                                                 "class"=>"form-control",
@@ -115,6 +120,7 @@
                                                 "parsley-required"=>"true",
                                             ))
                                         ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-action">
