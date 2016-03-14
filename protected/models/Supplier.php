@@ -12,9 +12,9 @@ class Supplier extends CActiveRecord{
         return parent::model($className);
     }
 
-    public function tableName(){
-        return "{{supplier}}";
-    }
+//    public function tableName(){
+//        return "{{supplier}}";
+//    }
 
     public function rules(){
         return array(

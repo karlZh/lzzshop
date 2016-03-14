@@ -19,4 +19,4 @@ class BrandController extends Controller{
     public function actionIndex(){
         $this->render('brands');
     }
-} 
+}
