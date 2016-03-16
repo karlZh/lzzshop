@@ -455,6 +455,24 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i> 业务员管理 <b class="fa fa-plus dropdown-plus"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="<?php echo $this->createUrl('saleman/add') ?>">
+                                        <i class="fa fa-caret-right"></i> 添加业务员
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->createUrl('saleman/index') ?>">
+                                        <i class="fa fa-caret-right"></i> 业务员管理
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-pencil"></i> 品牌管理 <b class="fa fa-plus dropdown-plus"></b>
                             </a>
                             <ul class="dropdown-menu">
