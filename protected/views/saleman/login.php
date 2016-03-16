@@ -82,11 +82,45 @@
 
 <div class="login">
     <h1>业务员登陆</h1>
-    <form method="post">
-        <input type="text" name="u" placeholder="用户名" required="required" />
-        <input type="password" name="p" placeholder="密码" required="required" />
+    <?php
+    $form = $this->beginWidget(
+        'CActiveForm',
+        array(
+            'htmlOptions'=>array(
+                'id'=>"form-signin",
+                'class'=>"form-signin",
+            ),
+        )
+    )
+    ?>
+    <section class="errmessage">
+        <?php
+        echo $form->error($model,"loginmessage");
+//        echo $form->error($model,"password");
+        ?>
+    </section>
+    <?php
+    echo $form->textField(
+        $model,
+        'salemanuser',
+        array(
+            "placeholder"=>"用户名",
+        )
+    );
+    ?>
+    <?php
+    echo $form->passwordField(
+        $model,
+        'password',
+        array(
+            "placeholder"=>"密码"
+        )
+    );
+    ?>
         <button type="submit" class="btn btn-primary btn-block btn-large">登录</button>
-    </form>
+    <?php
+    $this->endWidget();
+    ?>
 </div>
 
 
