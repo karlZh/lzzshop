@@ -40,10 +40,10 @@ class Saleman extends  CActiveRecord{
     public function checkPass(){
         if(!$this->hasErrors()){
             $data = $this->find(
-                'name=:name
+                'salemanuser=:salemanuser
                  and password=:pass',
                 array(
-                    ':name'=>$this->adminuser,
+                    ':salemanuser'=>$this->salemanuser,
                     ':pass'=>md5($this->password)
                 )
             );
