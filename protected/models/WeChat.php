@@ -14,6 +14,7 @@ class WeChat{
     const OAUTH_URL = "https://open.weixin.qq.com/connect/oauth2/authorize";
     const GET_ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
     const GET_USER_INFO = "https://api.weixin.qq.com/sns/userinfo";
+    const CREATE_TICKET ="https://api.weixin.qq.com/cgi-bin/qrcode/create";
 
     public static function getAccessToken($code){
         $url = self::GET_ACCESS_TOKEN_URL
@@ -32,6 +33,22 @@ class WeChat{
             ."&openid=".$openid
             ."&lang=zh_CN";
         $output = Yii::app()->curl->get($url);
+
+        return $output;
+    }
+
+    /*
+     * createTicket
+     * 创建二维码ticket
+     * @author chao
+     * @date 2016-3-10
+     * @time 10:30
+     * @since v1.0
+     */
+    public function createTicket($token,$data){
+        $url = self::CREATE_TICKET
+            ."?access_token=".$token;
+        $output = Yii::app()->curl->get($url,$data);
 
         return $output;
     }
