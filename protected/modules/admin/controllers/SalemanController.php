@@ -1,7 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: peng
+ * 后台业务员管理类
+ * User: chao
  * Date: 2016/3/14
  * Time: 13:31
  */
