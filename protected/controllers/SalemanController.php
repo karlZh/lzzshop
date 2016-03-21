@@ -6,6 +6,7 @@
  * Time: 21:28
  */
 class SalemanController extends Controller{
+    public $layout = "/layouts/saleman";
     /**
      * 业务员登陆页面
      */
@@ -15,28 +16,27 @@ class SalemanController extends Controller{
             $model->scenario = "salemanlogin";
             $model->attributes = $_POST['Saleman'];
             if($model->validate()){
-                echo "您登陆了";
-//                $this->redirect($this->createUrl('default/index'));
+                $this->redirect($this->createUrl('saleman/index'));
             }
         }
         $this->renderPartial('login',array('model'=>$model));
     }
 
-    /**
-     * 业务员首页面
-     */
     public function actionIndex(){
+        $inv_code = $_SESSION['saleman']['invitation_code'];
+
         $criteria = new CDbCriteria;
+        $criteria -> condition = 'invitation_code=:inv_code';
+        $criteria -> params = array(':inv_code'=>$inv_code);
+        $memberCount = Member::model()->count($criteria);
 
-        $model = Saleman::model();
-        $total = $model->count($criteria);
-        $pages = new CPagination($total);
-        $pages -> pageSize = self::PAGE_SIZE;
-        $pages->applyLimit($criteria);
-        $salemanList = $model -> findAll($criteria);
+        $salemanInfo = Saleman::model()->findByPk($_SESSION['saleman']['id']);
 
-        $this -> render('salemanlist',array('salemanList'=>$salemanList,'pager'=>$pages));
-
+        $this->render('salemanindex',array('memberCount'=>$memberCount,'salemanInfo'=>$salemanInfo));
     }
 
+    public function createewm(){
+        $WechartModel = new WeChat;
+        $access_token = $WechartModel->getAccessToken()
+    }
 }

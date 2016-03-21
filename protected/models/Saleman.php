@@ -58,7 +58,8 @@ class Saleman extends  CActiveRecord{
 //                    )
 //                );
                 $_SESSION['saleman']['id'] = $data->id;
-                $_SESSION['saleman']['name'] = $this->name;
+                $_SESSION['saleman']['name'] = $data->name;
+                $_SESSION['saleman']['invitation_code'] = $data->invitation_code;
             }
         }
     }
