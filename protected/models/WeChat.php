@@ -37,6 +37,7 @@ class WeChat{
         return $output;
     }
 
+
     /*
      * createTicket
      * 创建二维码ticket
