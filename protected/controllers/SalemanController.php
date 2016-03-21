@@ -21,4 +21,22 @@ class SalemanController extends Controller{
         }
         $this->renderPartial('login',array('model'=>$model));
     }
+
+    /**
+     * 业务员首页面
+     */
+    public function actionIndex(){
+        $criteria = new CDbCriteria;
+
+        $model = Saleman::model();
+        $total = $model->count($criteria);
+        $pages = new CPagination($total);
+        $pages -> pageSize = self::PAGE_SIZE;
+        $pages->applyLimit($criteria);
+        $salemanList = $model -> findAll($criteria);
+
+        $this -> render('salemanlist',array('salemanList'=>$salemanList,'pager'=>$pages));
+
+    }
+
 }
