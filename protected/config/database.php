@@ -10,8 +10,8 @@ return array(
 	'emulatePrepare' => true,
 	'username' => 'root',
 //    'username' => 'root',
-//    'password' => 'root',
-    'password' => 'root123',
+    'password' => 'root',
+//    'password' => 'root123',
 	'charset' => 'utf8',
     'tablePrefix'=>'lzz_',
 );

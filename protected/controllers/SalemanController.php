@@ -35,8 +35,17 @@ class SalemanController extends Controller{
         $this->render('salemanindex',array('memberCount'=>$memberCount,'salemanInfo'=>$salemanInfo));
     }
 
-    public function createewm(){
-        $WechartModel = new WeChat;
-        $access_token = $WechartModel->getAccessToken()
+    public function actionCreateqrcode(){
+        $salemanid = 1;
+//            $_SESSION['saleman']['id'];
+        $token = WeChat::getPlatformToken();
+        $token = json_decode($token,true);
+        $access_token = $token['access_token'];
+        $qrcode = "{\"action_name\":\"QR_LIMIT_SCENE\",\"action_info\":{\"scene\":{\"scene_id\":".$salemanid."}}}";
+        $result = WeChat::createTicket($access_token,$qrcode);
+        $jsoninfo = json_decode($result,true);
+        $ticket = $jsoninfo['ticket'];
+
+        WeChat::downloadWeixinFile($ticket,'');
     }
 }

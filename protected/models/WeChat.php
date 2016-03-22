@@ -14,7 +14,9 @@ class WeChat{
     const OAUTH_URL = "https://open.weixin.qq.com/connect/oauth2/authorize";
     const GET_ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
     const GET_USER_INFO = "https://api.weixin.qq.com/sns/userinfo";
+    const GET_ACCESS_TOKEN = "https://api.weixin.qq.com/cgi-bin/token";
     const CREATE_TICKET ="https://api.weixin.qq.com/cgi-bin/qrcode/create";
+    const QRCODE_URL = "https://mp.weixin.qq.com/cgi-bin/showqrcode";
 
     public static function getAccessToken($code){
         $url = self::GET_ACCESS_TOKEN_URL
@@ -37,7 +39,23 @@ class WeChat{
         return $output;
     }
 
+    /*
+     * getPlatformToken
+     * 获取access_token
+     * @author chao
+     * @date 2016-3-10
+     * @time 10:30
+     * @since v1.0
+     */
+    public static function getPlatformToken(){
+        $url = self::GET_ACCESS_TOKEN
+            ."?grant_type=client_credential"
+            ."&appid=".WeChat::APPID
+            ."&secret=".WeChat::APPKEY;
+        $output = Yii::app()->curl->get($url);
 
+        return $output;
+    }
     /*
      * createTicket
      * 创建二维码ticket
@@ -46,12 +64,40 @@ class WeChat{
      * @time 10:30
      * @since v1.0
      */
-    public function createTicket($token,$data){
+    public static function createTicket($token,$data){
         $url = self::CREATE_TICKET
             ."?access_token=".$token;
-        $output = Yii::app()->curl->get($url,$data);
+        Yii::app()->curl->setOption(CURLOPT_SSL_VERIFYPEER,false);
+        Yii::app()->curl->setOption(CURLOPT_SSL_VERIFYHOST,false);
+        if(!empty($data)){
+            Yii::app()->curl->setOption(CURLOPT_POST,1);
+            Yii::app()->curl->setOption(CURLOPT_POSTFIELDS,$data);
+        }
+        Yii::app()->curl->setOption(CURLOPT_RETURNTRANSFER,1);
+
+        $output = Yii::app()->curl->get($url);
 
         return $output;
     }
+    /*
+     * downloadWeixinFile
+     * 创建二维码ticket
+     * 参数（二维码ticket，文件路径及文件名）
+     * @author chao
+     * @date 2016-3-10
+     * @time 10:30
+     * @since v1.0
+     */
+    public static function downloadWeixinFile($ticket,$filename){
+        $url = self::QRCODE_URL
+            ."?ticket=".urlencode($ticket);
+        $curlset = array(
+            CURLOPT_HEADER => 0
+        );
+        $arr = Yii::app()->curl->getOption();
 
+        var_dump($arr);
+        echo $ticket;
+        exit;
+    }
 }
