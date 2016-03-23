@@ -7,6 +7,7 @@
  */
 class SalemanController extends Controller{
     public $layout = "/layouts/saleman";
+    const WECHAT_CODE_PATH = "./assets/uploads/wechat/";
     /**
      * 业务员登陆页面
      */
@@ -46,6 +47,20 @@ class SalemanController extends Controller{
         $jsoninfo = json_decode($result,true);
         $ticket = $jsoninfo['ticket'];
 
-        WeChat::downloadWeixinFile($ticket,'');
+        $filepath = self::WECHAT_CODE_PATH.$salemanid;
+        if(!file_exists($filepath)){
+            mkdir($filepath,0775);
+        }
+        $imgname = "qrcode".$salemanid.".jpg";
+        $filename = $filepath."/".$imgname;
+        $out = WeChat::downloadWeixinFile($ticket,$filename);
+
+        $data = Saleman::model()->findByPk($salemanid);
+        $data -> qrcode = $imgname;
+        if($out){
+            if($data->save(false)){
+                $this->redirect($this->createUrl('saleman/index'));
+            }
+        }
     }
 }

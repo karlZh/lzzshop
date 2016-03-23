@@ -91,13 +91,39 @@ class WeChat{
     public static function downloadWeixinFile($ticket,$filename){
         $url = self::QRCODE_URL
             ."?ticket=".urlencode($ticket);
-        $curlset = array(
-            CURLOPT_HEADER => 0
-        );
-        $arr = Yii::app()->curl->getOption();
-
-        var_dump($arr);
-        echo $ticket;
-        exit;
+//        $curlset = array(
+//            CURLOPT_HEADER => 0,
+//            CURLOPT_NOBODY => 0,
+//            CURLOPT_SSL_VERIFYPEER => false,
+//            CURLOPT_SSL_VERIFYHOST => false,
+//            CURLOPT_RETURNTRANSFER => 1
+//        );
+        Yii::app()->curl->resetOptions();
+        Yii::app()->curl->setOption(CURLOPT_NOBODY,0);
+        Yii::app()->curl->setOption(CURLOPT_SSL_VERIFYHOST,false);
+//        $arr =  Yii::app()->curl->getOptions();
+//        $ch = curl_init($url);
+//        curl_setopt($ch,CURLOPT_HEADER,0);
+//        curl_setopt($ch,CURLOPT_NOBODY,0);
+//        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
+//        curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,false);
+//        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+//        $package = curl_exec($ch);
+//        $httpinfo = curl_getinfo($ch);
+//        curl_close($ch);
+//        $output = array_merge(array('body'=>$package),array('header'=>$httpinfo));
+//        Yii::app()->curl->setOptions($curlset);
+        $output = Yii::app()->curl->get($url);
+        $local_file = fopen($filename,'w');
+        if(false !== $local_file){
+            if(false !== fwrite($local_file,$output)){
+                fclose($local_file);
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+            }
     }
 }
