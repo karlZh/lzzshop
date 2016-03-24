@@ -6409,3 +6409,58 @@ Stack trace:
 #4 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
 #5 D:\server\www\shop\index.php(13): CWebApplication->run()
 REQUEST_URI=/?r=saleman/index
+2016/03/24 10:37:00 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.wechat" is not defined.' in D:\server\www\shop\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\server\www\shop\framework\base\CModule.php(105): CComponent->__get('wechat')
+#1 D:\server\www\shop\protected\controllers\SalemanController.php(68): CModule->__get('wechat')
+#2 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): SalemanController->actionTest()
+#3 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('test')
+#7 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('saleman/test')
+#8 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 D:\server\www\shop\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=saleman/test
+---
+2016/03/24 14:15:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:16:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:16:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:16:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:16:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:16:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:18:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:18:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z456' for key 'openid'' in D:\server\www\shop\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\server\www\shop\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 D:\server\www\shop\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 D:\server\www\shop\protected\controllers\SalemanController.php(73): CActiveRecord->save(false)
+#3 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): SalemanController->actionTest()
+#4 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('test')
+#8 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('saleman/test')
+#9 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 D:\server\www\shop\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=saleman/test
+---
+2016/03/24 14:24:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z213' for key 'openid'. The SQL statement executed was: INSERT INTO `lzz_member` (`openid`, `nickname`, `sex`, `language`, `city`, `province`, `country`, `headimgurl`, `subscribe_time`, `unionid`, `remark`, `groupid`, `localgroupid`, `subscribe`, `isforbidden`, `createtime`, `invitation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14, :yp15, :yp16).
+2016/03/24 14:24:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'z213' for key 'openid'' in D:\server\www\shop\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\server\www\shop\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 D:\server\www\shop\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 D:\server\www\shop\protected\controllers\SalemanController.php(73): CActiveRecord->save(false)
+#3 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): SalemanController->actionTest()
+#4 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('test')
+#8 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('saleman/test')
+#9 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 D:\server\www\shop\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=saleman/test
+---

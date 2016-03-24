@@ -37,8 +37,7 @@ class SalemanController extends Controller{
     }
 
     public function actionCreateqrcode(){
-        $salemanid = 1;
-//            $_SESSION['saleman']['id'];
+        $salemanid = $_SESSION['saleman']['id'];
         $token = WeChat::getPlatformToken();
         $token = json_decode($token,true);
         $access_token = $token['access_token'];
@@ -63,4 +62,5 @@ class SalemanController extends Controller{
             }
         }
     }
+
 }

@@ -19,4 +19,9 @@ class MemberController extends Controller{
     public function actionIndex(){
         $this->render('member');
     }
+
+    public function actionLogout(){
+        session_unset();
+        session_destroy();
+    }
 }

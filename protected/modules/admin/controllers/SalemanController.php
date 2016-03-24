@@ -20,6 +20,8 @@ class SalemanController extends Controller{
                 $model->headimgurl = Yii::app()->request->baseUrl.'/assets/admin/images/loader.png';
                 $model->invitation_code = md5(time());
                 if($model->save(false)){
+                    $salemanid = $model->getPrimaryKey();
+                    $invi_code = str_pad(strval($salemanid),8,"0",STR_PAD_LEFT);
                     Yii::app()->user->setFlash('info','添加成功');
                 }else{
                     Yii::log("添加业务员失败",json_encode($_POST),Clogger::LEVEL_ERROR);

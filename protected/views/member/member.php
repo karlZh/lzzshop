@@ -11,7 +11,7 @@
 <div class="page-role">
     <link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl ?>/assets/home/css/member/index.css"/>
     <script src="<?php echo Yii::app()->request->baseUrl ?>/assets/home/js/member/index.js"></script>
-    <div class="page-title"><a class="return" href="javascript:history.back();void(0)">返 回</a>我的拍鞋网<a href="/login/?act=logout">退出登录<i></i></a></div>
+    <div class="page-title"><a class="return" href="javascript:history.back();void(0)">返 回</a>我的拍鞋网<a href="<?php echo $this->createUrl("member/logout") ?>">退出登录<i></i></a></div>
     <div class="member">
         <h2><span class="pxui-color-red">
                                                         13688180214
