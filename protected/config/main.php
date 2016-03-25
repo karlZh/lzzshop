@@ -45,6 +45,9 @@ return array(
             'options' => array()
         ),
 
+		'wechat' => array(
+			'class' => 'ext.wechat.Wechat',
+		),
 		// uncomment the following to enable URLs in path-format
 
 		'urlManager'=>array(

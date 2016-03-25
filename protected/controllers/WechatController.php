@@ -86,123 +86,78 @@ class WechatController extends Controller{
             echo "</script>";
             return ;
         }
-
-
     }
 
     public function actionInterface(){
 
+        $weixin = new Weixin($_GET);
+        $weixin -> token = self::TOKEN;
+        $weixin ->debug = false;
         $echostr = Yii::app()->request->getParam('echostr');
         if(isset($echostr)){
-            $signature = Yii::app()->request->getParam('signature');
-            $timestamp = Yii::app()->request->getParam('timestamp');
-            $nonce = Yii::app()->request->getParam('nonce');
-
-            $arr = array($timestamp,$nonce,self::TOKEN);
-            sort($arr);
-            if($signature == sha1(join($arr))){
-                echo $echostr;
-            }
-        }else{
-            //get post data, May be due to the different environments
-            $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-
-            //extract post data
-            if (!empty($postStr)){
+            $weixin -> valid();
+        }
+        $weixin -> init();
+            if (!empty($weixin->msg)){
                 /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
                    the best way is to check the validity of xml by yourself */
-                libxml_disable_entity_loader(true);
-                $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $fromUsername = $postObj->FromUserName;
-                $toUsername = $postObj->ToUserName;
-                $fMsgType = $postObj->MsgType;
-                $event = strtolower($postObj->Event);
-                if($fMsgType=='event'){
-                    switch($event){
-                        case "click":
-                            $keyword = $postObj->EventKey;
-                            break;
-                        case "subscribe":
-                            $msgType = "text";
-                            $contentStr = "欢迎关注绿蜘蛛！";
-                            if(isset($postObj->EventKey)){
-                                $sceneid = str_replace("qrscene_","",$postObj->EventKey);
-                                $saleman = Saleman::model()->findByPk($sceneid);
-                                $menberModel = new Member();
-                                $menber =$menberModel->find("openid=:openid",array(":openid"=>$fromUsername));
-                                if(!empty($menber)){
-                                    if(!$menber->invitation_code){
-                                        $menber->invitation_code = $saleman->invitation_code;
-                                        $menber->createtime = time();
-                                        $menber->save(false);
-                                    }
-                                }else{
-                                    $menberModel->openid = $fromUsername;
-                                    $menberModel->invitation_code = $saleman->invitation_code;
-                                    $menberModel->createtime = time();
-                                    $menberModel->save(false);
+                $fromUsername = $weixin->msg->FromUserName;
+                $toUsername = $weixin->msg->ToUserName;
+                $fMsgType = empty($weixin->msg->MsgType) ? '': strtolower($weixin->msg->MsgType);
+                $event = strtolower($weixin->msg->Event);
+                switch($fMsgType){
+                    case 'event':
+                        switch($event){
+                            case "subscribe":
+                                $contentStr = "欢迎关注绿蜘蛛！";
+                                if(isset($weixin->msg->EventKey)){
+                                    $sceneid = intval(str_replace("qrscene_","",$weixin->msg->EventKey));
+                                    $this->_bangdingInviCode($fromUsername,$sceneid);
                                 }
-                            }
-                            break;
-                        case "scan":
-                            $msgType = "text";
-                            $contentStr = "欢迎回来！";
-                            if(isset($postObj->EventKey)){
-                                $saleman = Saleman::model()->findByPk($postObj->EventKey);
-                                $menberModel = new Member();
-                                $menber =$menberModel->find("openid=:openid",array(":openid"=>$fromUsername));
-                                if(!empty($menber)){
-                                    if(!$menber->invitation_code){
-                                        $menber->invitation_code = $saleman->invitation_code;
-                                        $menber->createtime = time();
-                                        $menber->save(false);
-                                    }
-                                }else{
-                                    $menberModel->openid = $fromUsername;
-                                    $menberModel->invitation_code = $saleman->invitation_code;
-                                    $menberModel->createtime = time();
-                                    $menberModel->save(false);
+                                echo $weixin -> makeText($contentStr);
+                                break;
+                            case "scan":
+                                $contentStr = "欢迎回来！";
+                                if(isset($weixin->msg->EventKey)){
+                                    $sceneid = intval($weixin->msg->EventKey);
+                                    $this->_bangdingInviCode($fromUsername,$sceneid);
                                 }
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-
-                }elseif($fMsgType=='text'){
-                    $keyword = trim($postObj->Content);
-                }
-
-                $time = time();
-                $textTpl = "<xml>
-							<ToUserName><![CDATA[%s]]></ToUserName>
-							<FromUserName><![CDATA[%s]]></FromUserName>
-							<CreateTime>%s</CreateTime>
-							<MsgType><![CDATA[%s]]></MsgType>
-							<Content><![CDATA[%s]]></Content>
-							<FuncFlag>0</FuncFlag>
-							</xml>";
-                if(!empty( $keyword ))
-                {
-                    switch($keyword){
-                        case 'denglu':
-                            $msgType = "text";
-                            $contentStr = "http://101.200.147.132/appserver/index.php/front/Weixinlogin/checkUser/openId/".$fromUsername;
-                    }
-
-                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                    echo $resultStr;
-                }else{
-                    echo "";
+                                echo $weixin -> makeText($contentStr);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
                 }
 
             }else {
                 echo "";
                 exit;
             }
+    }
 
+    /**
+     * 用户微信绑定邀请码
+     * @param string $openid
+     * @param string $sceneid
+     */
+    private function _bangDingInviCode($openid,$sceneid)
+    {
+        $saleman = Saleman::model()->findByPk($sceneid);
+        $menberModel = new Member();
+        $menber =$menberModel->find("openid=:openid",array(":openid"=>$openid));
+        if(!empty($menber)){
+            if(!$menber->invitation_code){
+                $menber->invitation_code = $saleman->invitation_code;
+                $menber->createtime = time();
+                $menber->save(false);
+            }
+        }else{
+            $menberModel->openid = $openid;
+            $menberModel->invitation_code = $saleman->invitation_code;
+            $menberModel->createtime = time();
+            $menberModel->save(false);
         }
 
     }
-
-} 
+}

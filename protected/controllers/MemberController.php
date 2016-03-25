@@ -23,5 +23,6 @@ class MemberController extends Controller{
     public function actionLogout(){
         session_unset();
         session_destroy();
+        $this->redirect($this->createUrl("index/index"));
     }
 }

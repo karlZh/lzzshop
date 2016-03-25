@@ -6464,3 +6464,39 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/index.php?r=saleman/test
 ---
+2016/03/25 10:04:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'invitation_code' doesn't have a default value. The SQL statement executed was: INSERT INTO `lzz_saleman` (`tot_sales`, `push_money`, `createtime`, `salemanuser`, `password`, `name`, `headimgurl`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+2016/03/25 10:04:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'invitation_code' doesn't have a default value' in D:\server\www\shop\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\server\www\shop\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 D:\server\www\shop\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 D:\server\www\shop\protected\modules\admin\controllers\SalemanController.php(21): CActiveRecord->save(false)
+#3 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): SalemanController->actionAdd()
+#4 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('add')
+#8 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/saleman/a...')
+#9 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 D:\server\www\shop\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/?r=admin/saleman/add
+HTTP_REFERER=http://localhost:100/?r=admin/saleman/add
+---
+2016/03/25 10:05:54 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'invitation_code' doesn't have a default value. The SQL statement executed was: INSERT INTO `lzz_saleman` (`tot_sales`, `push_money`, `createtime`, `salemanuser`, `password`, `name`, `headimgurl`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+2016/03/25 10:05:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'invitation_code' doesn't have a default value' in D:\server\www\shop\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\server\www\shop\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 D:\server\www\shop\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 D:\server\www\shop\protected\modules\admin\controllers\SalemanController.php(21): CActiveRecord->save(false)
+#3 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): SalemanController->actionAdd()
+#4 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('add')
+#8 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/saleman/a...')
+#9 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 D:\server\www\shop\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/?r=admin/saleman/add
+HTTP_REFERER=http://localhost:100/?r=admin/saleman/add
+---
