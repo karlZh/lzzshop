@@ -98,42 +98,40 @@ class WechatController extends Controller{
             $weixin -> valid();
         }
         $weixin -> init();
-            if (!empty($weixin->msg)){
-                /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
-                   the best way is to check the validity of xml by yourself */
-                $fromUsername = $weixin->msg->FromUserName;
-                $toUsername = $weixin->msg->ToUserName;
-                $fMsgType = empty($weixin->msg->MsgType) ? '': strtolower($weixin->msg->MsgType);
-                $event = strtolower($weixin->msg->Event);
-                switch($fMsgType){
-                    case 'event':
-                        switch($event){
-                            case "subscribe":
-                                $contentStr = "欢迎关注绿蜘蛛！";
-                                if(isset($weixin->msg->EventKey)){
-                                    $sceneid = intval(str_replace("qrscene_","",$weixin->msg->EventKey));
-                                    $this->_bangdingInviCode($fromUsername,$sceneid);
-                                }
-                                echo $weixin -> makeText($contentStr);
-                                break;
-                            case "scan":
-                                $contentStr = "欢迎回来！";
-                                if(isset($weixin->msg->EventKey)){
-                                    $sceneid = intval($weixin->msg->EventKey);
-                                    $this->_bangdingInviCode($fromUsername,$sceneid);
-                                }
-                                echo $weixin -> makeText($contentStr);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-                }
 
-            }else {
-                echo "";
-                exit;
+        if (!empty($weixin->msg)){
+            $fromUsername = $weixin->msg->FromUserName;
+            $fMsgType = empty($weixin->msg->MsgType) ? '': strtolower($weixin->msg->MsgType);
+            $event = strtolower($weixin->msg->Event);
+            switch($fMsgType){
+                case 'event':
+                    switch($event){
+                        case "subscribe":
+                            $contentStr = "欢迎关注绿蜘蛛！";
+                            if(isset($weixin->msg->EventKey)){
+                                $sceneid = intval(str_replace("qrscene_","",$weixin->msg->EventKey));
+                                $this->_bangDingInviCode($fromUsername,$sceneid);
+                            }
+                            echo $weixin -> makeText($contentStr);
+                            break;
+                        case "scan":
+                            $contentStr = "欢迎回来！";
+                            if(isset($weixin->msg->EventKey)){
+                                $sceneid = intval($weixin->msg->EventKey);
+                                $this->_bangDingInviCode($fromUsername,$sceneid);
+                            }
+                            echo $weixin -> makeText($contentStr);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
             }
+
+        }else {
+            echo "";
+            exit;
+        }
     }
 
     /**
