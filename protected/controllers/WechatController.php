@@ -112,7 +112,6 @@ class WechatController extends Controller{
                                 $sceneid = intval(str_replace("qrscene_","",$weixin->msg->EventKey));
                                 $this->_bangDingInviCode($fromUsername,$sceneid);
                             }
-                            echo $weixin -> makeText($contentStr);
                             break;
                         case "scan":
                             $contentStr = "欢迎回来！";
@@ -120,12 +119,43 @@ class WechatController extends Controller{
                                 $sceneid = intval($weixin->msg->EventKey);
                                 $this->_bangDingInviCode($fromUsername,$sceneid);
                             }
-                            echo $weixin -> makeText($contentStr);
+                            break;
+                        case "click":
+                            switch($weixin->msg->EventKey)
+                            {
+                                case 'changba':
+                                    $contentStr = "精彩下次见！";
+                                    break;
+                                case 'lzzwh':
+                                    $contentStr['items'][] = array(
+                                        'title' => '',
+                                        'description' => '',
+                                        'picurl' => '',
+                                        'url' => ''
+                                    );
+                                    break;
+                                case 'lzzzp':
+                                    $contentStr['items'][] = array(
+                                        'title' => '',
+                                        'description' => '',
+                                        'picurl' => '',
+                                        'url' => ''
+                                    );
+                                    break;
+                            }
                             break;
                         default:
                             break;
                     }
                     break;
+            }
+
+            if(is_array($contentStr)){
+                if(isset($contentStr['items'])){
+                    echo $weixin -> $this->makeNews($contentStr);
+                }
+            }else{
+                echo $weixin -> $this->makeText($contentStr);
             }
 
         }else {
@@ -158,4 +188,111 @@ class WechatController extends Controller{
         }
 
     }
+
+    /**
+     * 创建菜单
+     *
+     * @access public
+     */
+    public function actionCreatemenu(){
+        //三个一级菜单
+        $menu = array();
+        $menu['button'][0] = array(
+            'name' => '蜘蛛商城',
+            'type' => 'view',
+            'url' => 'http://www.greenspider.cn/weshop'
+        );
+        $menu['button'][1] = array(
+            'name' => '唱吧',
+            'type' => 'click',
+            'key' => 'changba'
+        );
+        $menu['button'][2] = array(
+            'name' => '关于我们',
+            'sub_button' => array(
+                0 => array(
+                    'name' => '绿蜘蛛文化',
+                    'type' => 'click',
+                    'key' => 'lzzwh'
+                ),
+                1 => array(
+                    'name' => '绿蜘蛛招聘',
+                    'type' => 'click',
+                    'key' => 'lzzzp'
+                ),
+                2 => array(
+                    'name' => '代理商登录',
+                    'type' => 'view',
+                    'url' => 'http://www.greenspider.cn/weshop/?r=saleman/login'
+                ),
+                3 => array(
+                    'name' => '供货商登录',
+                    'type' => 'view',
+                    'url' => 'http://www.greenspider.cn/weshop/?r=supplier/index'
+                )
+            )
+        );
+
+        $jsonmenu = json_encode($menu,JSON_UNESCAPED_UNICODE);
+        $access_token = WeChat::getPlatformToken();
+        $url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$access_token;
+
+//        $curl = new CURL;
+//        $output = $curl ->vpost($url,$jsonmenu);
+        $output = $this->post($url,$jsonmenu);
+        var_dump($output);
+
+    }
+
+    /**
+     * 获取素材列表
+     *
+     * @access public
+     */
+    public function actionGetmaterial(){
+        $access_token = WeChat::getPlatformToken();
+        $url = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=".$access_token;
+
+        $data = array();
+        $data['type'] = 'news';
+        $data['offset'] = 0;
+        $data['count'] = 10;
+
+        $json = json_encode($data);
+        echo $access_token;
+//        $curl = new CURL;
+//        $output = $curl -> vpost($url,$json);
+        $output = $this->post($url,$json);
+        echo "ok";
+        var_dump($output);
+    }
+    public function post($url, $data) {
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        //声明使用POST方式来进行发送
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+        //发送什么数据呢
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+        //忽略证书
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
+        $output = curl_exec($ch);
+
+        curl_close($ch);
+
+        return $output;
+    }
+
 }

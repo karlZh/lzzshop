@@ -6500,3 +6500,23 @@ Stack trace:
 REQUEST_URI=/?r=admin/saleman/add
 HTTP_REFERER=http://localhost:100/?r=admin/saleman/add
 ---
+2016/03/30 17:43:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "getmaterial".' in D:\server\www\shop\framework\web\CController.php:483
+Stack trace:
+#0 D:\server\www\shop\framework\web\CController.php(270): CController->missingAction('getmaterial')
+#1 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('getmaterial')
+#2 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('wechat/getmater...')
+#3 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 D:\server\www\shop\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=wechat/getmaterial
+---
+2016/03/30 17:43:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "getMaterial".' in D:\server\www\shop\framework\web\CController.php:483
+Stack trace:
+#0 D:\server\www\shop\framework\web\CController.php(270): CController->missingAction('getMaterial')
+#1 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('getMaterial')
+#2 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('wechat/getMater...')
+#3 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 D:\server\www\shop\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=wechat/getMaterial
+---
