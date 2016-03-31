@@ -6520,3 +6520,127 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/index.php?r=wechat/getMaterial
 ---
+2016/03/31 11:46:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "test".' in D:\server\www\shop\framework\web\CController.php:483
+Stack trace:
+#0 D:\server\www\shop\framework\web\CController.php(270): CController->missingAction('test')
+#1 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('test')
+#2 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('wechat/test')
+#3 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 D:\server\www\shop\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/?r=wechat/test
+---
+2016/03/31 11:46:54 [error] [php] include(Weixin.php): failed to open stream: No such file or directory (D:\server\www\shop\framework\YiiBase.php:432)
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): spl_autoload_call()
+#1 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#2 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\server\www\shop\framework\web\CController.php(286): WechatController->runAction()
+#4 D:\server\www\shop\framework\web\CController.php(265): WechatController->runActionWithFilters()
+#5 D:\server\www\shop\framework\web\CWebApplication.php(282): WechatController->run()
+#6 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/?r=wechat/test
+2016/03/31 11:47:23 [error] [php] include(Weixin.php): failed to open stream: No such file or directory (D:\server\www\shop\framework\YiiBase.php:432)
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): spl_autoload_call()
+#1 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#2 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\server\www\shop\framework\web\CController.php(286): WechatController->runAction()
+#4 D:\server\www\shop\framework\web\CController.php(265): WechatController->runActionWithFilters()
+#5 D:\server\www\shop\framework\web\CWebApplication.php(282): WechatController->run()
+#6 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/?r=wechat/test
+2016/03/31 11:48:56 [error] [php] include(Weixin.php): failed to open stream: No such file or directory (D:\server\www\shop\framework\YiiBase.php:432)
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): spl_autoload_call()
+#1 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#2 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\server\www\shop\framework\web\CController.php(286): WechatController->runAction()
+#4 D:\server\www\shop\framework\web\CController.php(265): WechatController->runActionWithFilters()
+#5 D:\server\www\shop\framework\web\CWebApplication.php(282): WechatController->run()
+#6 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/?r=wechat/test
+2016/03/31 11:49:00 [error] [php] include(Weixin.php): failed to open stream: No such file or directory (D:\server\www\shop\framework\YiiBase.php:432)
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): spl_autoload_call()
+#1 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#2 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\server\www\shop\framework\web\CController.php(286): WechatController->runAction()
+#4 D:\server\www\shop\framework\web\CController.php(265): WechatController->runActionWithFilters()
+#5 D:\server\www\shop\framework\web\CWebApplication.php(282): WechatController->run()
+#6 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/?r=wechat/test
+2016/03/31 11:50:37 [error] [php] include(Weixin.php): failed to open stream: No such file or directory (D:\server\www\shop\framework\YiiBase.php:432)
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): spl_autoload_call()
+#1 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#2 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\server\www\shop\framework\web\CController.php(286): WechatController->runAction()
+#4 D:\server\www\shop\framework\web\CController.php(265): WechatController->runActionWithFilters()
+#5 D:\server\www\shop\framework\web\CWebApplication.php(282): WechatController->run()
+#6 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/?r=wechat/test
+2016/03/31 12:24:30 [error] [php] include(Weixin.php): failed to open stream: No such file or directory (D:\server\www\shop\framework\YiiBase.php:432)
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): spl_autoload_call()
+#1 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#2 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\server\www\shop\framework\web\CController.php(286): WechatController->runAction()
+#4 D:\server\www\shop\framework\web\CController.php(265): WechatController->runActionWithFilters()
+#5 D:\server\www\shop\framework\web\CWebApplication.php(282): WechatController->run()
+#6 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/?r=wechat/test
+2016/03/31 12:26:13 [error] [php] include(Weixin.php): failed to open stream: No such file or directory (D:\server\www\shop\framework\YiiBase.php:432)
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): spl_autoload_call()
+#1 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#2 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\server\www\shop\framework\web\CController.php(286): WechatController->runAction()
+#4 D:\server\www\shop\framework\web\CController.php(265): WechatController->runActionWithFilters()
+#5 D:\server\www\shop\framework\web\CWebApplication.php(282): WechatController->run()
+#6 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#8 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/?r=wechat/test
+2016/03/31 14:15:04 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "weixin".' in D:\server\www\shop\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\server\www\shop\protected\controllers\WechatController.php(284): CComponent->__call('weixin', Array)
+#1 D:\server\www\shop\protected\controllers\WechatController.php(284): CWebApplication->weixin(Array)
+#2 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): WechatController->actionTest()
+#3 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('test')
+#7 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('wechat/test')
+#8 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 D:\server\www\shop\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/?r=wechat/test
+---
+2016/03/31 16:07:07 [error] [exception.CException] exception 'CException' with message 'SalemanController contains improperly nested widget tags in its view "D:\server\www\shop\protected\views\saleman\login.php". A CActiveForm widget does not have an endWidget() call.' in D:\server\www\shop\framework\web\CBaseController.php:101
+Stack trace:
+#0 D:\server\www\shop\framework\web\CController.php(869): CBaseController->renderFile('D:\\server\\www\\s...', Array, true)
+#1 D:\server\www\shop\protected\controllers\SalemanController.php(23): CController->renderPartial('login', Array)
+#2 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): SalemanController->actionLogin()
+#3 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('login')
+#7 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('saleman/login')
+#8 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 D:\server\www\shop\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/?r=saleman/login
+---

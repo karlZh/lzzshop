@@ -45,8 +45,8 @@ return array(
             'options' => array()
         ),
 
-		'weixin' => array(
-			'class' => 'ext.weixin.Weixin',
+		'wechat' => array(
+			'class' => 'ext.wechat.Wechat',
 		),
 		// uncomment the following to enable URLs in path-format
 

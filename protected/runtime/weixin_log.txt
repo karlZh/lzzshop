@@ -1,0 +1,2 @@
+'D:\\server\\www\\shop\\protected'
+

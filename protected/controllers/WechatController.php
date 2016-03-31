@@ -90,14 +90,15 @@ class WechatController extends Controller{
 
     public function actionInterface(){
 
-        $weixin = new Weixin($_GET);
+        $weixin = Yii::app() -> weixin;
+        $weixin -> init($_GET);
         $weixin -> token = self::TOKEN;
-        $weixin ->debug = false;
+        $weixin ->debug = true;
         $echostr = Yii::app()->request->getParam('echostr');
         if(isset($echostr)){
             $weixin -> valid();
         }
-        $weixin -> init();
+        $weixin -> getMsg();
 
         if (!empty($weixin->msg)){
             $fromUsername = $weixin->msg->FromUserName;
@@ -128,18 +129,18 @@ class WechatController extends Controller{
                                     break;
                                 case 'lzzwh':
                                     $contentStr['items'][] = array(
-                                        'title' => '',
-                                        'description' => '',
-                                        'picurl' => '',
-                                        'url' => ''
+                                        'title' => '绿蜘蛛文化',
+                                        'description' => '绿蜘蛛:有人的地方就有绿蜘蛛！',
+                                        'picurl' => 'http://mmbiz.qpic.cn/mmbiz/SKWfrXaf1zfkiaBWkg673icuIxsu93ibrOe3B1GknHF52HLj2ic8uJP4iaPIuYHSG4vuz6yzNtw8MDiaHGDGntZEicQsg/0?wx_fmt=jpeg',
+                                        'url' => 'http://mp.weixin.qq.com/s?__biz=MzI1MjAzNzMzOA==&mid=407673751&idx=1&sn=76987b4b5e97e17315f512f42a7e9f0c#rd'
                                     );
                                     break;
                                 case 'lzzzp':
                                     $contentStr['items'][] = array(
-                                        'title' => '',
-                                        'description' => '',
-                                        'picurl' => '',
-                                        'url' => ''
+                                        'title' => '绿蜘蛛招聘',
+                                        'description' => '绿蜘蛛:有人的地方就有绿蜘蛛！',
+                                        'picurl' => 'http://mmbiz.qpic.cn/mmbiz/SKWfrXaf1zfkiaBWkg673icuIxsu93ibrOe3B1GknHF52HLj2ic8uJP4iaPIuYHSG4vuz6yzNtw8MDiaHGDGntZEicQsg/0?wx_fmt=jpeg',
+                                        'url' => 'http://mp.weixin.qq.com/s?__biz=MzI1MjAzNzMzOA==&mid=407673777&idx=1&sn=eed63850ab10515b7bcb2d3c20c9cb9f#rd'
                                     );
                                     break;
                             }
@@ -152,10 +153,10 @@ class WechatController extends Controller{
 
             if(is_array($contentStr)){
                 if(isset($contentStr['items'])){
-                    echo $weixin -> $this->makeNews($contentStr);
+                    echo $weixin -> makeNews($contentStr);
                 }
             }else{
-                echo $weixin -> $this->makeText($contentStr);
+                echo $weixin -> makeText($contentStr);
             }
 
         }else {
@@ -234,14 +235,44 @@ class WechatController extends Controller{
         );
 
         $jsonmenu = json_encode($menu,JSON_UNESCAPED_UNICODE);
-        $access_token = WeChat::getPlatformToken();
+        $acc_token = WeChat::getPlatformToken();
+        $acc_token = json_decode($acc_token,true);
+        $access_token = $acc_token['access_token'];
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$access_token;
 
-//        $curl = new CURL;
-//        $output = $curl ->vpost($url,$jsonmenu);
-        $output = $this->post($url,$jsonmenu);
+        $output = Yii::app() -> curl -> post($url,$jsonmenu);
         var_dump($output);
 
+    }
+
+    /**
+     * 自定义菜单查询
+     *
+     * @access public
+     */
+    public function actionGetMenu(){
+        $acc_token = WeChat::getPlatformToken();
+        $acc_token = json_decode($acc_token,true);
+        $access_token = $acc_token['access_token'];
+        $url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token=".$access_token;
+
+        $output = Yii::app() -> curl -> get($url);
+        echo $output;
+    }
+
+    /**
+     * 获取素材总数
+     *
+     * @access public
+     */
+    public function actionMaterialcount(){
+        $acc_token = WeChat::getPlatformToken();
+        $acc_token = json_decode($acc_token,true);
+        $access_token = $acc_token['access_token'];
+        $url = "https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token=".$access_token;
+
+        $output = Yii::app() -> curl -> get($url);
+        echo $output;
     }
 
     /**
@@ -250,7 +281,9 @@ class WechatController extends Controller{
      * @access public
      */
     public function actionGetmaterial(){
-        $access_token = WeChat::getPlatformToken();
+        $acc_token = WeChat::getPlatformToken();
+        $acc_token = json_decode($acc_token,true);
+        $access_token = $acc_token['access_token'];
         $url = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=".$access_token;
 
         $data = array();
@@ -259,40 +292,13 @@ class WechatController extends Controller{
         $data['count'] = 10;
 
         $json = json_encode($data);
-        echo $access_token;
-//        $curl = new CURL;
-//        $output = $curl -> vpost($url,$json);
-        $output = $this->post($url,$json);
-        echo "ok";
+        $output = Yii::app() -> curl -> post($url,$json);
+        $output = json_decode($output,true);
         var_dump($output);
     }
-    public function post($url, $data) {
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, $url);
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        //声明使用POST方式来进行发送
-        curl_setopt($ch, CURLOPT_POST, 1);
-
-        //发送什么数据呢
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-
-        //忽略证书
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-
-        $output = curl_exec($ch);
-
-        curl_close($ch);
-
-        return $output;
+    public function actionTest(){
+        $wexin = Yii::app()-> weixin;
+        $wexin -> debug = true;
+        $wexin -> reply(Yii::app()->basePath);
     }
-
 }

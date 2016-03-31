@@ -113,65 +113,16 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="card-container col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-slategray hover">
-                    <div class="front">
-
-                        <div class="media">
-                      <span class="pull-left">
-                        <i class="fa fa-eye media-object"></i>
-                      </span>
-
-                            <div class="media-body">
-                                <small>Visits</small>
-                                <h2 class="media-heading animate-number" data-value="9634" data-animation-duration="1500">0</h2>
-                            </div>
-                        </div>
-
-                        <div class="progress-list">
-                            <div class="details">
-                                <div class="title">This month plan %</div>
-                            </div>
-                            <div class="status pull-right bg-transparent-black-1">
-                                <span class="animate-number" data-value="25" data-animation-duration="1500">0</span>%
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="progress progress-little progress-transparent-black">
-                                <div class="progress-bar animate-progress-bar" data-percentage="25%"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="back">
-                        <a href="#">
-                            <i class="fa fa-bar-chart-o fa-4x"></i>
-                            <span>Check Summary</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
         <!-- /cards -->
 
         <!-- row -->
         <div class="row">
-
-
             <!-- col 8 -->
             <div class="col-lg-8 col-md-12">
 
-
-
-
                 <!-- tile -->
                 <section class="tile transparent">
-
-
-
 
                     <!-- tile header -->
                     <div class="tile-header color transparent-black textured rounded-top-corners">
@@ -179,12 +130,11 @@
                     </div>
                     <!-- /tile header -->
 
-
                     <!-- tile widget -->
                     <div class="tile-widget color transparent-black textured">
                         <div class="row">
                             <div class="col-lg-6">
-                                <img src="<?php echo Yii::app()->request->baseUrl;?>/assets/uploads/wechat/<?php echo $salemanInfo->id.'/'.$salemanInfo->qrcode;?>"
+                                <img style="width: 100%" src="<?php echo Yii::app()->request->baseUrl;?>/assets/uploads/wechat/<?php echo $salemanInfo->id.'/'.$salemanInfo->qrcode;?>"
                             </div>
                             <div class="col-lg-6">
                                 <a href="<?php echo $this->createUrl('saleman/createqrcode');?>">生成二维码</a>
