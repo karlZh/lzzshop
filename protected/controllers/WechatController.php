@@ -125,7 +125,13 @@ class WechatController extends Controller{
                             switch($weixin->msg->EventKey)
                             {
                                 case 'changba':
-                                    $contentStr = "精彩下次见！";
+//                                    $contentStr = "精彩下次见！";
+                                    $contentStr['items'][] = array(
+                                        'title' => '绿蜘蛛--面向全国诚招小伙伴,应聘须知',
+                                        'description' => '有你有我也有她！有人的地方就有绿蜘蛛！',
+                                        'picurl' => 'http://mmbiz.qpic.cn/mmbiz/SKWfrXaf1zfzCSfz4ibfXfuKvun4CYlu9pEf4ZIagOGDf2OicfGtztTtZXaV6vuLt5wUQDlVQeboToooSzQqPV9A/0?wx_fmt=jpeg',
+                                        'url' => 'http://mp.weixin.qq.com/s?__biz=MzI1MjAzNzMzOA==&mid=409304642&idx=1&sn=564ceccd87e64c6c62f701a4f685bd45#rd'
+                                    );
                                     break;
                                 case 'lzzwh':
                                     $contentStr['items'][] = array(
@@ -204,7 +210,7 @@ class WechatController extends Controller{
             'url' => 'http://www.greenspider.cn/weshop'
         );
         $menu['button'][1] = array(
-            'name' => '唱吧',
+            'name' => '畅吧',
             'type' => 'click',
             'key' => 'changba'
         );
@@ -222,7 +228,7 @@ class WechatController extends Controller{
                     'key' => 'lzzzp'
                 ),
                 2 => array(
-                    'name' => '代理商登录',
+                    'name' => '业务员登录',
                     'type' => 'view',
                     'url' => 'http://www.greenspider.cn/weshop/?r=saleman/login'
                 ),
