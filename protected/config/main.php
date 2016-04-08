@@ -48,6 +48,21 @@ return array(
 		'weixin' => array(
 			'class' => 'ext.weixin.Weixin',
 		),
+
+		'cache' => array(
+			'class' => 'ext.redis.CRedisCache',   //对应protected/extensions/redis/CredisCache.php
+			'servers' => array(
+				array(
+					'host' => '127.0.0.1',
+					'port' => 6379,
+				),
+			),
+		),
+
+		'session' => array(
+			'class' => 'ext.PRedisCacheHttpSession.PRedisCacheHttpSession',
+			'database' => 9,
+		),
 		// uncomment the following to enable URLs in path-format
 
 		'urlManager'=>array(

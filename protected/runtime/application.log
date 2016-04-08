@@ -6644,3 +6644,69 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/?r=saleman/login
 ---
+2016/04/07 10:33:39 [error] [exception.Predis_ServerException] exception 'Predis_ServerException' with message 'GTYPE Operation against a key holding the wrong kind of value' in D:\server\www\shop\protected\extensions\redis\Predis.php:573
+Stack trace:
+#0 D:\server\www\shop\protected\extensions\redis\Predis.php(711): Predis_ResponseErrorHandler->handle(Object(Predis_Connection), 'WRONGTYPE Opera...')
+#1 D:\server\www\shop\protected\extensions\redis\Predis.php(1312): Predis_ResponseReader->read(Object(Predis_Connection))
+#2 D:\server\www\shop\protected\extensions\redis\Predis.php(1469): Predis_Connection->readResponse(Object(Predis_Commands_ListPushHead))
+#3 D:\server\www\shop\protected\extensions\redis\Predis.php(207): Predis_ConnectionCluster->executeCommand(Object(Predis_Commands_ListPushHead))
+#4 [internal function]: Predis_Client->__call('lpush', Array)
+#5 [internal function]: Predis_Client->lpush('test', 'haode')
+#6 D:\server\www\shop\protected\extensions\redis\CRedisCache.php(143): call_user_func_array(Array, Array)
+#7 D:\server\www\shop\protected\controllers\TestController.php(10): CRedisCache->__call('lpush', Array)
+#8 D:\server\www\shop\protected\controllers\TestController.php(10): CRedisCache->lpush('test', 'haode')
+#9 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): TestController->actionInit()
+#10 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('init')
+#14 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('test/init')
+#15 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 D:\server\www\shop\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=test/init
+---
+2016/04/07 10:34:08 [error] [exception.Predis_ServerException] exception 'Predis_ServerException' with message 'GTYPE Operation against a key holding the wrong kind of value' in D:\server\www\shop\protected\extensions\redis\Predis.php:573
+Stack trace:
+#0 D:\server\www\shop\protected\extensions\redis\Predis.php(711): Predis_ResponseErrorHandler->handle(Object(Predis_Connection), 'WRONGTYPE Opera...')
+#1 D:\server\www\shop\protected\extensions\redis\Predis.php(1312): Predis_ResponseReader->read(Object(Predis_Connection))
+#2 D:\server\www\shop\protected\extensions\redis\Predis.php(1469): Predis_Connection->readResponse(Object(Predis_Commands_ListPushHead))
+#3 D:\server\www\shop\protected\extensions\redis\Predis.php(207): Predis_ConnectionCluster->executeCommand(Object(Predis_Commands_ListPushHead))
+#4 [internal function]: Predis_Client->__call('lpush', Array)
+#5 [internal function]: Predis_Client->lpush('test', 'bushi')
+#6 D:\server\www\shop\protected\extensions\redis\CRedisCache.php(143): call_user_func_array(Array, Array)
+#7 D:\server\www\shop\protected\controllers\TestController.php(10): CRedisCache->__call('lpush', Array)
+#8 D:\server\www\shop\protected\controllers\TestController.php(10): CRedisCache->lpush('test', 'bushi')
+#9 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): TestController->actionInit()
+#10 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('init')
+#14 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('test/init')
+#15 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 D:\server\www\shop\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=test/init
+---
+2016/04/07 10:34:51 [error] [exception.Predis_ServerException] exception 'Predis_ServerException' with message 'wrong number of arguments for 'lrange' command' in D:\server\www\shop\protected\extensions\redis\Predis.php:573
+Stack trace:
+#0 D:\server\www\shop\protected\extensions\redis\Predis.php(711): Predis_ResponseErrorHandler->handle(Object(Predis_Connection), 'ERR wrong numbe...')
+#1 D:\server\www\shop\protected\extensions\redis\Predis.php(1312): Predis_ResponseReader->read(Object(Predis_Connection))
+#2 D:\server\www\shop\protected\extensions\redis\Predis.php(1469): Predis_Connection->readResponse(Object(Predis_Commands_ListRange))
+#3 D:\server\www\shop\protected\extensions\redis\Predis.php(207): Predis_ConnectionCluster->executeCommand(Object(Predis_Commands_ListRange))
+#4 [internal function]: Predis_Client->__call('lrange', Array)
+#5 [internal function]: Predis_Client->lrange('wode')
+#6 D:\server\www\shop\protected\extensions\redis\CRedisCache.php(143): call_user_func_array(Array, Array)
+#7 D:\server\www\shop\protected\controllers\TestController.php(11): CRedisCache->__call('lrange', Array)
+#8 D:\server\www\shop\protected\controllers\TestController.php(11): CRedisCache->lrange('wode')
+#9 D:\server\www\shop\framework\web\actions\CInlineAction.php(49): TestController->actionInit()
+#10 D:\server\www\shop\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\server\www\shop\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\server\www\shop\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\server\www\shop\framework\web\CWebApplication.php(282): CController->run('init')
+#14 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController('test/init')
+#15 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 D:\server\www\shop\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=test/init
+---
