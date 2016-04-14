@@ -93,7 +93,7 @@ class WechatController extends Controller{
         $weixin = Yii::app() -> weixin;
         $weixin -> init($_GET);
         $weixin -> token = self::TOKEN;
-        $weixin ->debug = true;
+        $weixin ->debug = false;
         $echostr = Yii::app()->request->getParam('echostr');
         if(isset($echostr)){
             $weixin -> valid();

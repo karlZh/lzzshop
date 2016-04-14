@@ -134,6 +134,11 @@
                     $orderid = OrderTradeno::model()->find('tradeno=:t',array(':t'=>$xmlObj->out_trade_no))->orderid;
                     OrderTradeno::model()->updateAll(array('status'=>Constants::$orderStatus['paysuc']),'tradeno=:t',array(':t'=>$xmlObj->out_trade_no));
                     Order::model()->updateByPk($orderid,array('transaction_id'=>$xmlObj->transaction_id,'status'=>Constants::$orderStatus['paysuc']));
+                    $invitation_code = Member::model()->find('openid=:opid',array(':opid'=>$xmlData->openid))->invitation_code;
+                    //支付成功，将订单总额存入redis队列
+                    $amount = ($xmlData -> total_fee)/100;
+                    Yii::app()->cache->lpush($invitation_code,$amount);
+
                     Yii::log("【支付成功】:\n".$xmlObj."\n");
                 }
             }
@@ -168,6 +173,25 @@
                 'orderlist'=>empty($orders)?array():$orders,
             );
             $this->render('orderlist',$data);
+        }
+
+        public function actonCancel(){
+            $orderid = Yii::app() -> request -> getParam('orderid');
+            $orderinfo = Order::model() -> findByPk($orderid);
+            if(!empty($orderinfo)){
+                OrderDetail::model() -> deleteAll('orderid=:oid',array(':oid'=>$orderid));
+                OrderTradeno::model() -> delete('orderid=:oid',array(':oid'=>$orderid));
+                $orderinfo -> delete();
+                $data = array(
+                    'error'=> true,
+                    'errormsg' => '订单取消成功!'
+                );
+            }else{
+                $data = array(
+                    'error'=> true,
+                    'errormsg' => '未找到订单!'
+                );
+            }
         }
 
     }

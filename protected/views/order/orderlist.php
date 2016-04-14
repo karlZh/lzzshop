@@ -72,8 +72,21 @@
         $(this).next(".js-goodlist").slideDown();
     })
 
-    $(".topay").click(function(){alert('开发中，请重新下单');});
-    $(".cancel").click(function(){alert('开发中，敬请期待');});
+    $(".topay").click(function(){
+        alert('开发中，请重新下单');
+    });
+    $(".cancel").click(function(){
+//        alert('开发中，敬请期待');
+        $.ajax({
+            type; 'post',
+            url: '<?php echo $this -> createUrl("order/cancel");?>',
+            dataType; 'json',
+            data: {'orderid': orderid },
+            function(data){
+                alert(data.errormsg);
+            }
+        })
+    });
     $(".receive").click(function(){alert('您确认收到货物了吗？');});
 
 </script>
