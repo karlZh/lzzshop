@@ -196,8 +196,8 @@
                 $command2 -> execute();
                 $transaction -> commit();
                 $data =  array(
-                    'error' => true,
-                    'errormsg' => '订单取消成功！'
+                    'errorno' => true,
+                    'errmsg' => '订单取消成功！'
                 );
                 echo json_encode($data);
             }
@@ -205,8 +205,8 @@
             {
                 $transaction -> rollBack();
                 $data =  array(
-                    'error' => false,
-                    'errormsg' => '订单取消失败！'
+                    'errorno' => false,
+                    'errmsg' => '订单取消失败！'
                 );
                 echo json_encode($data);
             }
@@ -252,13 +252,13 @@
                 OrderTradeno::model() -> deleteAll('orderid=:oid',array(':oid'=>$orderid));
                 $orderinfo -> delete();
                 $data = array(
-                    'error'=> true,
-                    'errormsg' => '订单删除成功！'
+                    'errorno'=> true,
+                    'errmsg' => '订单删除成功！'
                 );
             }else{
                 $data = array(
-                    'error'=> true,
-                    'errormsg' => '未找到订单！'
+                    'errorno'=> true,
+                    'errmsg' => '未找到订单！'
                 );
             }
             echo json_encode($data);

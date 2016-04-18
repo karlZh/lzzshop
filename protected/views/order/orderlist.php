@@ -35,9 +35,9 @@
                 <input type="button" value="去支付" data-value="<?php echo $order->id ?>" class="topay" style="height:30px;line-height:10px;"/>
             <?php endif; ?>
             <?php if($order->status >= 100 && $order->status < 200): ?>
-                <input type="button" value="取消订单" data-value="<?php echo $order->id ?>" class="cancel" style="height:30px;line-height:10px;"/>
+                <input type="button" value="取消订单" data-value="<?php echo $order->id ?>" class="closed" style="height:30px;line-height:10px;"/>
             <?php endif; ?>
-            <?php if(($order->status >= 100 && $order->status < 102)||($order->status >= 405 && $order->status < 406)): ?>
+            <?php if(($order->status >= 100 && $order->status < 102)||($order->status >= 405 && $order->status <= 406)): ?>
                 <input type="button" value="删除订单" data-value="<?php echo $order->id ?>" class="delete" style="height:30px;line-height:10px;"/>
             <?php endif; ?>
             <?php if($order->status == 200): ?>
@@ -78,17 +78,33 @@
     $(".topay").click(function(){
         alert('开发中，请重新下单');
     });
-    $(".cancel").click(function(){
+    $(".closed").click(function(){
 //        alert('开发中，敬请期待');
-        $.ajax({
-            type; 'post',
-            url: '<?php echo $this -> createUrl("order/cancel");?>',
-            dataType; 'json',
-            data: {'orderid': orderid },
-            function(data){
-                alert(data.errormsg);
+        var orderid = $(this).attr('data-value');
+        var data = {
+            "orderid":orderid
+        };
+
+        $.post("<?php echo $this->createUrl('order/closed') ?>",data,function(data){
+            if(data.errorno){
+                alert(data.errmsg);
+                //var receive = '<li><input type="checkbox" name="receiveid" id="r-'+data.data.id+'" value="'+data.data.id+'" checked="checked"><label for="r-'+data.data.id+'">'+data.data.receivepeople+' '+data.data.receiveaddr+' '+data.data.postcode+' '+data.data.receivetel+'</label></li>';
+                //$("#receives").prepend(receive);
+                window.location.reload();
+            }else{
+                alert(data.errmsg);
             }
-        })
+        },'json');
+//        var orderid = $(this).attr('data-value');
+//        $.ajax({
+//            type; 'post',
+//            url: '<?php //echo $this -> createUrl("order/closed");?>//',
+//            dataType; 'json',
+//            data: {'orderid': orderid },
+//            function(data){
+//                alert(data.errormsg);
+//            }
+//        });
     });
     $(".delete").click(function(){
         alert('开发中,敬请期待');

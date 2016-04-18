@@ -33,7 +33,7 @@
         </div>
     </div>
     <div data-model="radio" class="pxui-list">
-        <a href="/member/order?pay=2">我的订单<i class="arrow-right"></i><b>您当前有<span class="pxui-color-yellow">0</span>个订单尚未完成</b></a>
+        <a href="<?php echo $this->createUrl('order/list');?>">我的订单<i class="arrow-right"></i><b>您当前有<span class="pxui-color-yellow">0</span>个订单尚未完成</b></a>
         <a href="/member/comments">我的评论<i class="arrow-right"></i><b>您当前可对<span class="pxui-color-yellow">0</span>个订单进行评论</b></a>
         <a href="/member/coupon">我的优惠券<i class="arrow-right"></i></a>
         <a href="/member/favorites">我的收藏<i class="arrow-right"></i></a>
