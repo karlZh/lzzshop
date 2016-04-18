@@ -6719,3 +6719,19 @@ Stack trace:
 #4 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
 #5 D:\server\www\shop\index.php(13): CWebApplication->run()
 REQUEST_URI=/index.php?r=order/notify
+2016/04/18 16:50:15 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'status' at row 1. The SQL statement executed was: UPDATE lzz_order SET status = :status WHERE id = :oid.
+2016/04/18 16:50:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'status' at row 1. The SQL statement executed was: UPDATE lzz_order SET status = :status WHERE id = :oid.
+2016/04/18 16:54:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'status' at row 1. The SQL statement executed was: UPDATE lzz_order SET status = :status WHERE id = :oid.
+2016/04/18 17:02:57 [error] [php] Array to string conversion (D:\server\www\shop\protected\controllers\OrderController.php:192)
+Stack trace:
+#0 D:\server\www\shop\framework\web\CController.php(286): OrderController->runAction()
+#1 D:\server\www\shop\framework\web\CController.php(265): OrderController->runActionWithFilters()
+#2 D:\server\www\shop\framework\web\CWebApplication.php(282): OrderController->run()
+#3 D:\server\www\shop\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\server\www\shop\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 D:\server\www\shop\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=order/closed/orderid/1
+2016/04/18 17:06:44 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'status' at row 1. The SQL statement executed was: UPDATE lzz_order SET status = :status WHERE id = :oid.
+2016/04/18 17:08:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'status' at row 1. The SQL statement executed was: UPDATE lzz_order SET status = :status WHERE id = :oid.
+2016/04/18 17:09:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'status' at row 1. The SQL statement executed was: UPDATE lzz_order SET status = :status WHERE id = :oid.
+2016/04/18 17:11:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'status' at row 1. The SQL statement executed was: UPDATE lzz_order SET status = 406 WHERE id = :oid.

@@ -175,23 +175,93 @@
             $this->render('orderlist',$data);
         }
 
-        public function actonCancel(){
+        /*
+         * 取消订单（关闭交易）
+         */
+        public function actionClosed(){
+            $orderid = Yii::app() -> request -> getParam('orderid');
+            $sql1 = "UPDATE {{order}} SET status = :status WHERE id = :oid";
+            $sql2 = "UPDATE {{order_tradeno}} SET status = :status WHERE orderid = :oid";
+            $connection = Yii::app()-> db;
+            $transaction = $connection -> beginTransaction();
+            try
+            {
+                $command1 = $connection -> createCommand($sql1);
+                $command1 -> bindParam(":status",Constants::$orderStatus['closed'],PDO::PARAM_STR);
+                $command1 -> bindParam(":oid",$orderid,PDO::PARAM_STR);
+                $command1 -> execute();
+                $command2 = $connection -> createCommand($sql2);
+                $command2 -> bindParam(":status",Constants::$orderStatus['closed'],PDO::PARAM_STR);
+                $command2 -> bindParam(":oid",$orderid,PDO::PARAM_STR);
+                $command2 -> execute();
+                $transaction -> commit();
+                $data =  array(
+                    'error' => true,
+                    'errormsg' => '订单取消成功！'
+                );
+                echo json_encode($data);
+            }
+            catch(Exception $e)
+            {
+                $transaction -> rollBack();
+                $data =  array(
+                    'error' => false,
+                    'errormsg' => '订单取消失败！'
+                );
+                echo json_encode($data);
+            }
+//            $orderinfo = Order::model() -> findByPk($orderid);
+//            if(!empty($orderinfo)){
+//                $orderinfo -> status = Constants::$orderStatus['closed'];
+//                if($orderinfo -> save()){
+//                    $orderTradeno = OrderTradeno::model() -> find('orderid=:oid',array(':oid'=>$orderid));
+//                    if($orderTradeno -> save()){
+//                        $data = array(
+//                            'error' => true,
+//                            'errormsg' => '订单取消成功！'
+//                        );
+//                    }else{
+//                        $data = array(
+//                            'error' => false,
+//                            'errormsg' => '订单取消失败！'
+//                        );
+//                    }
+//                }else{
+//                    $data = array(
+//                        'error' => false,
+//                        'errormsg' => '订单取消失败！'
+//                    );
+//                }
+//
+//            }else{
+//                $data = array(
+//                    'error' => false,
+//                    'errormsg' => '订单取消失败！'
+//                );
+//            }
+        }
+
+        /*
+         *删除订单
+         * */
+        public function actionDelete(){
             $orderid = Yii::app() -> request -> getParam('orderid');
             $orderinfo = Order::model() -> findByPk($orderid);
             if(!empty($orderinfo)){
                 OrderDetail::model() -> deleteAll('orderid=:oid',array(':oid'=>$orderid));
-                OrderTradeno::model() -> delete('orderid=:oid',array(':oid'=>$orderid));
+                OrderTradeno::model() -> deleteAll('orderid=:oid',array(':oid'=>$orderid));
                 $orderinfo -> delete();
                 $data = array(
                     'error'=> true,
-                    'errormsg' => '订单取消成功!'
+                    'errormsg' => '订单删除成功！'
                 );
             }else{
                 $data = array(
                     'error'=> true,
-                    'errormsg' => '未找到订单!'
+                    'errormsg' => '未找到订单！'
                 );
             }
+            echo json_encode($data);
         }
 
     }

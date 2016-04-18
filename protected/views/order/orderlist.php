@@ -37,6 +37,9 @@
             <?php if($order->status >= 100 && $order->status < 200): ?>
                 <input type="button" value="取消订单" data-value="<?php echo $order->id ?>" class="cancel" style="height:30px;line-height:10px;"/>
             <?php endif; ?>
+            <?php if(($order->status >= 100 && $order->status < 102)||($order->status >= 405 && $order->status < 406)): ?>
+                <input type="button" value="删除订单" data-value="<?php echo $order->id ?>" class="delete" style="height:30px;line-height:10px;"/>
+            <?php endif; ?>
             <?php if($order->status == 200): ?>
                 <input type="button" value="确认收货" data-value="<?php echo $order->id ?>" class="receive" style="height:30px;line-height:10px;"/>
             <?php endif; ?>
@@ -86,6 +89,9 @@
                 alert(data.errormsg);
             }
         })
+    });
+    $(".delete").click(function(){
+        alert('开发中,敬请期待');
     });
     $(".receive").click(function(){alert('您确认收到货物了吗？');});
 

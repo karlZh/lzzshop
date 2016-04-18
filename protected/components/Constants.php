@@ -20,6 +20,7 @@ class Constants {
     const ERROR_CART_DEL    =   -52;
 
     const ERROR_ORDER_CREATE = -53;
+    const ERROR_ORDER_CLOSED = -53;
 
     public static $errMsg = array(
         self::ERROR_OK          =>  'success',
@@ -33,6 +34,7 @@ class Constants {
         self::ERROR_CART_ADD    =>  '购物车添加失败',
         self::ERROR_CART_DEL    =>  '购物车删除失败',
         self::ERROR_ORDER_CREATE=>  '订单创建失败',
+        self::ERROR_ORDER_CLOSED=>  '订单取消失败',
     );
 
     public static $orderStatus = array(
@@ -48,6 +50,7 @@ class Constants {
         'canceled'  =>  403,
         'refunding' =>  404,
         'refunded'  =>  405,
+        'closed'    =>  406,
     );
 
     public static $step = array(
@@ -63,6 +66,7 @@ class Constants {
         403    =>  '退货完成',
         404    =>  '退款中',
         405    =>  '已退款',
+        406    =>  '交易关闭',
     );
 
     public static $express = array(
