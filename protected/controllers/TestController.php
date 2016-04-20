@@ -22,4 +22,8 @@ class TestController extends Controller{
         Yii::app()->cache->lpush('s0001',$money);
         echo '增加：'.$money;
     }
+
+    public function actionTest(){
+        $this -> render('test');
+    }
 }

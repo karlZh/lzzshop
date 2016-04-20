@@ -64,7 +64,7 @@
                     $orderDetailModel->createtime = time();
                     $orderDetailModel->save(false);
                 }
-                $notify_url = "http://www.greenspider.cn/weshop/notify.php";
+                $notify_url = "http://www.greenspider.cn/weshop/index.php?r=order/notify";
                 $ot = new OrderTradeno();
                 $ot->orderid = $orderid;
                 $ot->status = Constants::$orderStatus['submit'];
@@ -134,10 +134,10 @@
                     $orderid = OrderTradeno::model()->find('tradeno=:t',array(':t'=>$xmlObj->out_trade_no))->orderid;
                     OrderTradeno::model()->updateAll(array('status'=>Constants::$orderStatus['paysuc']),'tradeno=:t',array(':t'=>$xmlObj->out_trade_no));
                     Order::model()->updateByPk($orderid,array('transaction_id'=>$xmlObj->transaction_id,'status'=>Constants::$orderStatus['paysuc']));
-                    $invitation_code = Member::model()->find('openid=:opid',array(':opid'=>$xmlData->openid))->invitation_code;
+//                    $invitation_code = Member::model()->find('openid=:opid',array(':opid'=>$xmlData->openid))->invitation_code;
                     //支付成功，将订单总额存入redis队列
-                    $amount = ($xmlData -> total_fee)/100;
-                    Yii::app()->cache->lpush($invitation_code,$amount);
+//                    $amount = ($xmlData -> total_fee)/100;
+//                    Yii::app()->cache->lpush($invitation_code,$amount);
 
                     Yii::log("【支付成功】:\n".$xmlObj."\n");
                 }
@@ -195,50 +195,48 @@
                 $command2 -> bindParam(":oid",$orderid,PDO::PARAM_STR);
                 $command2 -> execute();
                 $transaction -> commit();
-                $data =  array(
-                    'errorno' => true,
-                    'errmsg' => '订单取消成功！'
-                );
-                echo json_encode($data);
+                $this -> error("error_ok","取消订单成功！");
             }
             catch(Exception $e)
             {
                 $transaction -> rollBack();
-                $data =  array(
-                    'errorno' => false,
-                    'errmsg' => '订单取消失败！'
-                );
-                echo json_encode($data);
+                $this->error('error_order_close','取消订单失败！',false);
             }
-//            $orderinfo = Order::model() -> findByPk($orderid);
-//            if(!empty($orderinfo)){
-//                $orderinfo -> status = Constants::$orderStatus['closed'];
-//                if($orderinfo -> save()){
-//                    $orderTradeno = OrderTradeno::model() -> find('orderid=:oid',array(':oid'=>$orderid));
-//                    if($orderTradeno -> save()){
-//                        $data = array(
-//                            'error' => true,
-//                            'errormsg' => '订单取消成功！'
-//                        );
-//                    }else{
-//                        $data = array(
-//                            'error' => false,
-//                            'errormsg' => '订单取消失败！'
-//                        );
-//                    }
-//                }else{
-//                    $data = array(
-//                        'error' => false,
-//                        'errormsg' => '订单取消失败！'
-//                    );
-//                }
-//
-//            }else{
-//                $data = array(
-//                    'error' => false,
-//                    'errormsg' => '订单取消失败！'
-//                );
-//            }
+        }
+
+        /*
+         * 支付订单
+         */
+        public function actionOrderpay(){
+            if(isset($_SESSION['member']['id']))
+            {
+                $orderid = Yii::app() -> request -> getParam('orderid');
+                $amount = Order::model()->findByPk($orderid) -> amount;
+                $tradeno = OrderTradeno::model() -> find('orderid = :oid',array(':oid' => $orderid)) -> tradeno;
+                $notify_url = "http://www.greenspider.cn/weshop/index.php?r=order/notify";
+
+                $xmlData = Pay::UNIPay($tradeno,'绿蜘蛛电子商品',$amount,$notify_url,'JSAPI',$_SESSION['member']['openid']);
+                $xmlObj = simplexml_load_string($xmlData,'SimpleXMLElement',LIBXML_NOCDATA);
+                $prepay_id = "prepay_id=".$xmlObj->prepay_id;
+                $data = array(
+                    'appId'     =>  Pay::APPID,
+                    'timeStamp' =>  strval(time()),
+                    'nonceStr'  =>  md5(uniqid()),
+                    'package'   =>  $prepay_id,
+                    'signType'  =>  'MD5',
+                );
+                $paySign = Pay::mkSign($data);
+                $data['paySign'] = $paySign;
+                $data['orderid'] = $orderid;
+
+//                $weixin = Yii::app() -> weixin;
+//                $weixin -> debug = true;
+//                $weixin -> reply($data);
+                $this -> error("error_ok","支付中...",$data);
+            }else{
+                $this->redirect($this->createUrl('wechat/welogin'));
+                Yii::app()->end();
+            }
         }
 
         /*
@@ -246,22 +244,30 @@
          * */
         public function actionDelete(){
             $orderid = Yii::app() -> request -> getParam('orderid');
-            $orderinfo = Order::model() -> findByPk($orderid);
-            if(!empty($orderinfo)){
-                OrderDetail::model() -> deleteAll('orderid=:oid',array(':oid'=>$orderid));
-                OrderTradeno::model() -> deleteAll('orderid=:oid',array(':oid'=>$orderid));
-                $orderinfo -> delete();
-                $data = array(
-                    'errorno'=> true,
-                    'errmsg' => '订单删除成功！'
-                );
-            }else{
-                $data = array(
-                    'errorno'=> true,
-                    'errmsg' => '未找到订单！'
-                );
+            $sql1 = "DELETE FROM {{order}} WHERE id = :oid";
+            $sql2 = "DELETE FROM {{order_tradeno}} WHERE orderid = :oid";
+            $sql3 = "DELETE FROM {{order_detail}} WHERE orderid = :oid";
+            $connection = Yii::app() -> db;
+            $transaction = $connection -> beginTransaction();
+            try
+            {
+                $command1 = $connection -> createCommand($sql1);
+                $command1 -> bindParam(":oid",$orderid,PDO::PARAM_STR);
+                $command1 -> execute();
+                $command2 = $connection -> createCommand($sql2);
+                $command2 -> bindParam(":oid",$orderid,PDO::PARAM_STR);
+                $command2 -> execute();
+                $command3 = $connection -> createCommand($sql3);
+                $command3 -> bindParam(":oid",$orderid,PDO::PARAM_STR);
+                $command3 -> execute();
+                $transaction -> commit();
+                $this -> error("error_ok","删除订单成功！");
             }
-            echo json_encode($data);
+            catch(Exception $e)
+            {
+                $transaction -> rollback();
+                $this->error('error_order_delete','删除订单失败！',false);
+            }
         }
 
     }

@@ -76,38 +76,84 @@
     })
 
     $(".topay").click(function(){
-        alert('开发中，请重新下单');
+//        alert('开发中，请重新下单');
+        var orderid = $(this).attr('data-value');
+        var postData = {
+            "orderid":orderid
+        }
+
+        $.post("<?php echo $this -> createUrl('order/orderpay');?>",postData,function(d){
+            if(d.errno == 0){
+                WeixinJSBridge.invoke('getBrandWCPayRequest',{
+                    "appId" : d.data.appId, //公众号名称，由商户传入
+                    "timeStamp":d.data.timeStamp, //时间戳，自 1970 年以来的秒数
+                    "nonceStr" : d.data.nonceStr, //随机串
+                    "package" : d.data.package,
+                    "signType" : d.data.signType, //微信签名方式:
+                    "paySign" : d.data.paySign //微信签名
+                },function(res) {
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                        alert('支付成功');window.location.href='<?php echo $this->createUrl("order/list") ?>';
+                    } else if(res.err_msg == 'get_brand_wcpay_request:cancel') {
+                        alert('您取消了支付');
+                        $("#js-choice").val('去 支 付').attr('disabled',false);
+                    }else{
+                        alert('支付失败');
+                        $("#js-choice").val('去 支 付').attr('disabled',false);
+                    }
+                    window.location.href='<?php echo $this->createUrl("order/list") ?>';
+                })
+
+            }else{
+                alert(d.errmsg);
+                window.location.reload();
+            }
+        },"json")
     });
     $(".closed").click(function(){
 //        alert('开发中，敬请期待');
-        var orderid = $(this).attr('data-value');
-        var data = {
-            "orderid":orderid
-        };
+        if(confirm("是否取消订单？")) {
+            $(this).attr('disabled',true);
+            var orderid = $(this).attr('data-value');
+            var data = {
+                "orderid": orderid
+            };
 
-        $.post("<?php echo $this->createUrl('order/closed') ?>",data,function(data){
-            if(data.errorno){
-                alert(data.errmsg);
-                //var receive = '<li><input type="checkbox" name="receiveid" id="r-'+data.data.id+'" value="'+data.data.id+'" checked="checked"><label for="r-'+data.data.id+'">'+data.data.receivepeople+' '+data.data.receiveaddr+' '+data.data.postcode+' '+data.data.receivetel+'</label></li>';
-                //$("#receives").prepend(receive);
-                window.location.reload();
-            }else{
-                alert(data.errmsg);
-            }
-        },'json');
-//        var orderid = $(this).attr('data-value');
-//        $.ajax({
-//            type; 'post',
-//            url: '<?php //echo $this -> createUrl("order/closed");?>//',
-//            dataType; 'json',
-//            data: {'orderid': orderid },
-//            function(data){
-//                alert(data.errormsg);
-//            }
-//        });
+            $.post("<?php echo $this->createUrl('order/closed') ?>", data, function (data) {
+                if (data.errno == 0) {
+                    alert(data.errmsg);
+                    window.location.reload();
+                } else {
+                    alert(data.errmsg);
+                    $(this).attr('disabled',false);
+                }
+
+            }, 'json');
+        }else{
+            return false;
+        }
     });
     $(".delete").click(function(){
-        alert('开发中,敬请期待');
+//        alert('开发中,敬请期待');
+        if(confirm("是否删除订单？")){
+            $(this).attr('disabled',true);
+            var orderid = $(this).attr('data-value');
+            var data = {
+                "orderid":orderid
+            };
+
+            $.post("<?php echo $this->createUrl('order/delete') ?>",data,function(data){
+                if(data.errno == 0){
+                    alert(data.errmsg);
+                    window.location.reload();
+                }else{
+                    alert(data.errmsg);
+                    $(this).attr('disabled',true);
+                }
+            },'json');
+        }else{
+            return false;
+        }
     });
     $(".receive").click(function(){alert('您确认收到货物了吗？');});
 

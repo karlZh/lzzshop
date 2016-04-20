@@ -31,48 +31,8 @@
       <file leaf-file-name="WechatController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/WechatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.071429">
+            <state vertical-scroll-proportion="-10.857142">
               <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/layouts/layout.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="36.642857">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/MemberController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.464286">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="member.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/member/member.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0357144">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReceiveController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/ReceiveController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -81,31 +41,57 @@
       <file leaf-file-name="receivelist.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/views/receive/receivelist.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.785714">
-              <caret line="122" column="113" selection-start-line="122" selection-start-column="113" selection-end-line="122" selection-end-column="113" />
+            <state vertical-scroll-proportion="-23.071428">
+              <caret line="200" column="21" selection-start-line="200" selection-start-column="21" selection-end-line="200" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/controllers/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.785715">
-              <caret line="168" column="68" selection-start-line="168" selection-start-column="68" selection-end-line="168" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.8076923">
+              <caret line="268" column="67" selection-start-line="268" selection-start-column="67" selection-end-line="268" selection-end-column="67" />
+              <folding>
+                <marker date="1461145192485" expanded="true" signature="11469:11506" placeholder="DELETE FROM ..." />
+                <marker date="1461145192485" expanded="true" signature="11530:11580" placeholder="DELETE FROM ..." />
+                <marker date="1461145192485" expanded="true" signature="11604:11653" placeholder="DELETE FROM ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Weixin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/extensions/weixin/Weixin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.071429">
+              <caret line="123" column="50" selection-start-line="123" selection-start-column="50" selection-end-line="123" selection-end-column="50" />
+              <folding>
+                <marker date="1459405613525" expanded="true" signature="1852:2170" placeholder="..." />
+                <marker date="1459405613525" expanded="true" signature="2613:2920" placeholder="..." />
+                <marker date="1459405613525" expanded="true" signature="2952:3150" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orderlist.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/order/orderlist.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-27.821428">
+              <caret line="155" column="9" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orderlist.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/views/order/orderlist.php">
+      <file leaf-file-name="TestController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30769232">
-              <caret line="39" column="113" selection-start-line="39" selection-start-column="113" selection-end-line="39" selection-end-column="113" />
-              <folding>
-                <element signature="n#style#0;n#input#1;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-17.642857">
+              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,9 +99,21 @@
       <file leaf-file-name="Pay.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/Pay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.892858">
-              <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+            <state vertical-scroll-proportion="-14.25">
+              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/test/test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.892858">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#85#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,12 +172,14 @@
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/protected/views/test/result.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/protected/controllers/WechatController.php" />
         <option value="$PROJECT_DIR$/protected/components/Constants.php" />
         <option value="$PROJECT_DIR$/protected/views/member/member.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/OrderController.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/TestController.php" />
+        <option value="$PROJECT_DIR$/protected/views/test/test.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/weixin_log.txt" />
         <option value="$PROJECT_DIR$/protected/views/order/orderlist.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/OrderController.php" />
       </list>
     </option>
   </component>
@@ -224,8 +224,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -273,6 +273,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lvzhizhu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -609,10 +631,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15298508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15458423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -650,20 +672,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/models/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.107143">
-          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Accesstoken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34210527">
@@ -745,13 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/runtime/weixin_log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -880,31 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/weixin/Weixin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="50" selection-start-line="123" selection-start-column="50" selection-end-line="123" selection-end-column="50" />
-          <folding>
-            <marker date="1459405613525" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1459405613525" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1459405613525" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/TestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="49" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25">
           <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -920,7 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25">
           <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -932,37 +911,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Pay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.892858">
-          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/components/Constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.464285">
-          <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/WechatController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.071429">
-          <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/member/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35323888">
           <caret line="35" column="46" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="46" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -976,7 +928,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/layout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="36.642857">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -984,7 +936,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/MemberController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.464286">
+        <state vertical-scroll-proportion="0.21153846">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding />
         </state>
@@ -992,7 +944,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/member/member.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0357144">
+        <state vertical-scroll-proportion="0.057692308">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
@@ -1006,28 +958,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/receive/receivelist.php">
+    <entry file="file://$PROJECT_DIR$/protected/controllers/WechatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.785714">
-          <caret line="122" column="113" selection-start-line="122" selection-start-column="113" selection-end-line="122" selection-end-column="113" />
+        <state vertical-scroll-proportion="-10.857142">
+          <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/OrderController.php">
+    <entry file="file://$PROJECT_DIR$/protected/extensions/weixin/Weixin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.785715">
-          <caret line="168" column="68" selection-start-line="168" selection-start-column="68" selection-end-line="168" selection-end-column="68" />
+        <state vertical-scroll-proportion="4.071429">
+          <caret line="123" column="50" selection-start-line="123" selection-start-column="50" selection-end-line="123" selection-end-column="50" />
+          <folding>
+            <marker date="1459405613525" expanded="true" signature="1852:2170" placeholder="..." />
+            <marker date="1459405613525" expanded="true" signature="2613:2920" placeholder="..." />
+            <marker date="1459405613525" expanded="true" signature="2952:3150" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.642857">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/test/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.892858">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/runtime/weixin_log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.037401576">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.25">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/Constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.464285">
+          <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/OrderDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21153846">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/receive/receivelist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.071428">
+          <caret line="200" column="21" selection-start-line="200" selection-start-column="21" selection-end-line="200" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/order/orderlist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30769232">
-          <caret line="39" column="113" selection-start-line="39" selection-start-column="113" selection-end-line="39" selection-end-column="113" />
+        <state vertical-scroll-proportion="-27.821428">
+          <caret line="155" column="9" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8076923">
+          <caret line="268" column="67" selection-start-line="268" selection-start-column="67" selection-end-line="268" selection-end-column="67" />
           <folding>
-            <element signature="n#style#0;n#input#1;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <marker date="1461145192485" expanded="true" signature="11469:11506" placeholder="DELETE FROM ..." />
+            <marker date="1461145192485" expanded="true" signature="11530:11580" placeholder="DELETE FROM ..." />
+            <marker date="1461145192485" expanded="true" signature="11604:11653" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
